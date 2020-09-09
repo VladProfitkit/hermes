@@ -1,0 +1,43 @@
+/*** Slider ***/
+div.slider, div.slider * {display: block}
+
+div.slider {position: relative; width: 100%; height: 100%}
+div.slider div.slider_frame {position: relative; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden}
+
+div.slider ul.slider_container {position: absolute; top: 0; left: 0; width: 100%; height: 100%}
+div.slider li.slider_slide {margin: 0; position: relative; width: 100%; height: 100%}
+div.slider div.slider_image {width: 100%; height: calc(100% - 10px); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover}
+div.slider div.slider_text {position: absolute; bottom: 10px; left: 0; width: 100%}
+
+/* Navigation */
+div.slider div.slider_prev {position: absolute; z-index: 50; left: 360px; bottom: 240px; width: 90px; height: 70px; background: url('/wp-content/themes/hermes/images/slider_arrows.png') no-repeat 0 0; cursor: pointer}
+div.slider div.slider_next {position: absolute; z-index: 50; left: 360px; bottom: 170px; width: 90px; height: 70px; background: url('/wp-content/themes/hermes/images/slider_arrows.png') no-repeat 0 -70px; cursor: pointer}
+/*div.slider div.slider_prev, div.slider div.slider_next {transition: background-color 1s}
+div.slider div.slider_prev:hover, div.slider div.slider_next:hover {background-color: rgba(0,0,0,0.4)}*/
+
+div.slider div.slider_bullets {position: absolute; left: 50%; bottom: 50px; transform: translateX(-50%); z-index: 55}
+div.slider div.slider_bullets div {float: left; cursor: pointer}
+div.slider div.slider_bullets div:before {content: ''; display: block; width: 11px; height: 11px; margin: 8px; border: 1px solid #fff; box-shadow: 0 0 4px rgba(0,0,0,0.4); transform: rotate(45deg);}
+div.slider div.slider_bullets div.active:before, div.slider div.slider_bullets div:hover:before {background-color: #ec6f00}
+/* */
+
+/* Slider text */
+div.slider div.slider_text a {width: 100%; height: 100%}
+div.slider div.slider_text div.text_bg {max-width: 410px; height: 360px; padding: 50px 70px 0 40px; background-color: #fff; box-shadow: 0 0 16px rgba(0,0,0,0.1)}
+div.slider div.slider_text h2 {margin-bottom: 20px; text-align: left; line-height: 1.1; /*font-family: 'Philosopher', sans-serif;*/ font-size: 33px}
+/*div.slider div.slider_text p {color: #fff; font-size: 20px; text-shadow: 1px 1px 5px #000}*/
+/* */
+
+@media (max-width: 991.98px) /* Bootstrap md */
+{
+    div.slider div.slider_image {height: 100%}
+    div.slider div.slider_text {bottom: 0}
+    
+    div.slider div.slider_prev {display: none}
+    div.slider div.slider_next {display: none}
+    
+    div.slider div.slider_text div.text_bg {height: 400px; background-color: rgba(0,0,0,0.5); box-shadow: none}
+    div.slider div.slider_text div.text_bg * {color: #fff}
+}
+
+/*** /Slider ***/

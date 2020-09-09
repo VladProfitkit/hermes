@@ -1,0 +1,33 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+#BEGIN PROTECTION
+ErrorDocument 401 default
+ErrorDocument 403 default
+
+Options -Indexes
+
+<Files 'wp-login.php'>
+AuthType Basic
+AuthName 'Private access'
+AuthUserFile /var/www/u0518747/data/www/hermes.su/.htpasswd
+
+Require valid-user
+</Files>
+
+<Files ~ '(^\.ht|^wp-config\.php|^xmlrpc\.php)'>
+Order allow,deny
+Deny from all
+</Files>
+
+#END PROTECTION
